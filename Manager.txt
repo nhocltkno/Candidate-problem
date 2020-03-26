@@ -1,0 +1,5 @@
+Experiencer
+A1207;Buu;2000;asd;0911004045;buuuuu@gmail.com;0;12;asd
+A1234;acac;1999;asdasd;0123456789;asdasd@gmail.com;0;12;123asd
+Fresher
+Internship
