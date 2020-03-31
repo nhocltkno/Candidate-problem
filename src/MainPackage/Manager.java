@@ -868,8 +868,7 @@ public class Manager {
                         if (expYear!=0) {
                             experiencer.setExpYear(expYear);
                         }
-                        list.remove(candidate);
-                        list.add(experiencer);
+                        System.out.println("Update successfully");
                     }
                 }
             }
