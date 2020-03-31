@@ -686,27 +686,41 @@ public class Manager {
                 }
             }
             for (int i = 0;i<candidate1.size();i++){
-                System.out.println((i+1)+" "+candidate1.get(i).getName());
+                System.out.println((i+1)+" "+candidate1.get(i).getID()+candidate1.get(i).getName());
             }
 
-            int choose = 0;
+            int choose = 0,from = 0,to=0;
+            int typeDelete = 0;
             do {
                 System.out.print("Enter the index you want to delete: ");
-                try {
-                    choose = Integer.parseInt(scanner.nextLine());
+                String s = scanner.nextLine();
+                if (s.matches("[0-9]{0,4}")){
+                    typeDelete = 1;
+                    choose = Integer.parseInt(s);
                     check = false;
-                } catch (Exception e){
+                } else if (s.matches("[0-9]{0,4}-[0-9]{0,4}")){
+                    typeDelete = 2;
+                    StringTokenizer stk = new StringTokenizer(s,"-");
+                    from = Integer.parseInt(stk.nextToken());
+                    to = Integer.parseInt(stk.nextToken());
+                    check = false;
+                } else {
                     check = true;
-                    System.out.println("Invalid index!");
-                }
-                if (choose<=0 || choose>candidate1.size()){
-                    check =true;
-                    System.out.println("Invalid index");
                 }
             } while (check);
-            list.remove(candidate1.get(choose-1));
-            System.out.println("======AFTER DELETING=====");
-            display();
+            System.out.println("Do you want to delete selected index (YES/NO)?");
+            String checkAgain = scanner.nextLine();
+            if (checkAgain.equals("YES")) {
+                if ( typeDelete == 1 ) {
+                    list.remove(candidate1.get(choose - 1));
+                }
+                if ( typeDelete == 2 ) {
+                    for ( int i = from; i <= to; i++ ) {
+                        list.remove(candidate1.get(i - 1));
+                    }
+                }
+                System.out.println("Delete successfuly");
+            }
         }
     }
 
