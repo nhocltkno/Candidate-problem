@@ -686,7 +686,7 @@ public class Manager {
                 }
             }
             for (int i = 0;i<candidate1.size();i++){
-                System.out.println((i+1)+" "+candidate1.get(i).getID()+candidate1.get(i).getName());
+                System.out.println((i+1)+" "+candidate1.get(i).getID()+" "+candidate1.get(i).getName());
             }
 
             int choose = 0,from = 0,to=0;
@@ -698,12 +698,20 @@ public class Manager {
                     typeDelete = 1;
                     choose = Integer.parseInt(s);
                     check = false;
+                    if ((choose<=0) || (choose>candidate1.size())) {
+                        check = true;
+                        System.out.println("Invalid index");
+                    }
                 } else if (s.matches("[0-9]{0,4}-[0-9]{0,4}")){
                     typeDelete = 2;
                     StringTokenizer stk = new StringTokenizer(s,"-");
                     from = Integer.parseInt(stk.nextToken());
                     to = Integer.parseInt(stk.nextToken());
                     check = false;
+                    if ((from<=0) || (to>candidate1.size())) {
+                        check = true;
+                        System.out.println("Invalid index");
+                    }
                 } else {
                     check = true;
                 }
@@ -719,7 +727,7 @@ public class Manager {
                         list.remove(candidate1.get(i - 1));
                     }
                 }
-                System.out.println("Delete successfuly");
+                System.out.println("Delete successfully");
             }
         }
     }
