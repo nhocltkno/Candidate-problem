@@ -23,6 +23,6 @@ public class Experiencer extends Candidate {
 
     @Override
     public String toString() {
-        return iD+";"+ name+";"+date+";"+address+";"+phoneNumber+";"+email+";"+type +";"+expYear+";"+ proSkill;
+        return iD+";"+ name+";"+date+";"+address+";"+phoneNumber+";"+email+";"+type +";"+expYear+";"+proSkill;
     }
 }

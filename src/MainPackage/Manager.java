@@ -856,7 +856,7 @@ public class Manager {
                         if (!email.equals("")) {
                             experiencer.setEmail(email);
                         }
-                        if (phoneNumber.equals("")) {
+                        if (!phoneNumber.equals("")) {
                             experiencer.setPhoneNumber(phoneNumber);
                         }
                         if (date!=0) {
@@ -995,8 +995,7 @@ public class Manager {
                         if (!education.equals("")) fresher.setEducation(education);
                         if (graDate!=0) fresher.setGraDate(graDate);
                         if (!graRank.equals("")) fresher.setGraRank(graRank);
-                        list.remove(candidate);
-                        list.add(fresher);
+                        System.out.println("Update successfully");
                     }
                 }
             }
@@ -1121,9 +1120,8 @@ public class Manager {
                         if (date!=0) internship.setDate(date);
                         if (!email.equals("")) internship.setEmail(email);
                         if (!name.equals(""))internship.setName(name);
-                        if (!phoneNumber.equals(""))internship.setPhoneNumber(phoneNumber);
-                        list.remove(candidate);
-                        list.add(internship);
+                        if (!phoneNumber.equals("")) internship.setPhoneNumber(phoneNumber);
+                        System.out.println("Update successfully");
                     }
                 }
             }
